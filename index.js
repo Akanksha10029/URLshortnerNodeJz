@@ -16,3 +16,5 @@ app.use('/', urlRoute);
 
 // Start the server
 app.listen(port, ()=> console.log(`Server is running on port ${port}`));
+
+//run this file using "npm start" command in the terminal 
