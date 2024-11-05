@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: poppins;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<body>
+    <h1>URL Shortener</h1>
+    <div>
+        <form method="post" action="/url" class="form-container">
+            <label for="">Enter your Original URL</label>
+            <input type="text" name="url" placeholder="https://example.com">
+            <button type="submit">Shorten</button>
+        </form>
+    </div>
+    <!-- Check if ID exists and display shortened URL -->
+    <% if(locals.id) { %>
+        <div class="shortened-url">
+            <p>Shortened URL generated at: <a href="http://localhost:8001/url/<%= id %>">http://localhost:8001/url/<%= id %></a></p>
+        </div>
+        <% } %>
+        <% if(locals.urls) { %>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Original URL</th>
+                            <th>Shortened URL</th>
+                            <th>Clicks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% urls.forEach((url, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= url.redirectUrl %></td>
+                            <td><a href="http://localhost:8001/url/<%= url.shortId %>"><%= url.shortId %></a></td>
+                            <td><%= url.visitHistory.length %></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+    
+</body>
+</html>
