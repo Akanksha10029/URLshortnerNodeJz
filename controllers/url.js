@@ -11,7 +11,9 @@ async function handleGenerateNewUrl(req,res){
         redirectUrl: req.body.url,
         visitHistory:[],
     });
-    return res.status(200).json({shortId: shortID});
+
+    return res.render('home',{id: shortID});
+    // return res.status(200).json({shortId: shortID});
 }
 
 async function handleVisitUrl(req,res){
