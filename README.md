@@ -70,6 +70,20 @@ Postman is a powerful tool for testing and interacting with the API endpoints. I
 
 - **Analytics Request**: Send a GET request to `http://localhost:8001/analytics/<shortId>` to retrieve analytics data, such as the total clicks for a shortened URL.
 
+## Screenshots
+
+### Original URL Paste
+![Original URL Paste](statics/ORiginal%20url%20paste.jpg)
+
+### Interface
+![Interface](statics/interface.jpg)
+
+### Shorten URL
+![Shorten URL](statics/shorten%20url.jpg)
+
+### Updated Data
+![Updated Data](statics/updated%20data.jpg)
+
 ## Future Enhancements
 
 - Add user authentication to manage URLs.
