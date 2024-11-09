@@ -29,16 +29,24 @@ A simple and efficient URL shortener service built with Node.js, Express, and Mo
 ## API Endpoints
 
 ### `POST /` - Generate a shortened URL
-- **Request:** Send the original URL in JSON format.
-- **Response:** Returns a unique shortened URL ID.
+- **Request:** Send the original URL by pasting it in the form and submit it.
+- **Response:** Returns a unique shortened URL ID at `http://localhost:8001/url`.
+- when we go back to home page ,i.e, `http://localhost:8001/` we will get a table with analytics data for previously shortened URLs, including the original URL, shortened URL ID, and total click count.
 
 ### `GET /<shortId>` - Redirect to the original URL
-- **Request:** Access the shortened URL (e.g., `http://localhost:8001/<shortId>`).
+- **Request:** Access the shortened URL (e.g., `http://localhost:8001/url/<shortId>`).
 - **Response:** Redirects to the original URL and updates the click count.
+- This setup allows users to view URL shortening and analytics on a single page, making the user experience straightforward and consolidated.
 
-### `GET /analytics/<shortId>` - Retrieve click analytics for a specific URL
-- **Request:** Use the short ID in the URL to fetch analytics data.
-- **Response:** Returns the total click count and other relevant analytics data.
+## Example Workflow
+
+1. Go to `http://localhost:8001/`.
+2. Enter a URL in the form and submit it.
+3. The new shortened URL will be created and saved to the database.
+4. Refresh the home page to see the updated analytics data for the new URL.
+5. Use `http://localhost:8001/url/<shortId>` to access the shortened URL, which will redirect to the original URL and update the click count.
+
+---
 
 ## Project Structure
 
